@@ -14,5 +14,5 @@
 
 #import "UIView+Frame.h"
 #import "UIBarButtonItem+Extension.h"
-
+#import "UIImage+Extension.h"
 #endif /* PrefixHeader_pch */

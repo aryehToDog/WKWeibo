@@ -7,7 +7,7 @@
 //
 
 #import "WKDiscoveryTableViewController.h"
-
+#import "WKSearchBar.h"
 @interface WKDiscoveryTableViewController ()
 
 @end
@@ -17,16 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self setUpSearchBar];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setUpSearchBar {
+
+    WKSearchBar *searchBar = [WKSearchBar searchBar];
+    
+    self.navigationItem.titleView = searchBar;
 }
 
 #pragma mark - Table view data source

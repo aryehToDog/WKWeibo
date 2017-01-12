@@ -7,8 +7,12 @@
 //
 
 #import "WKHomeTableViewController.h"
-@interface WKHomeTableViewController ()
+#import "WKTitleBtn.h"
+#import "WKPopMenu.h"
+@interface WKHomeTableViewController ()<WKPopMenuDelegate>
 
+@property (nonatomic,assign)BOOL isSelectImage;
+@property (nonatomic,strong)WKTitleBtn *titleBtn;
 @end
 
 @implementation WKHomeTableViewController
@@ -21,11 +25,50 @@
 
 - (void)setUpUI {
 
+    //设置menuView
+    WKTitleBtn *titleBtn = [[WKTitleBtn alloc]init];
+    [titleBtn setTitle:@"首页" forState:UIControlStateNormal];
+    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    [titleBtn setBackgroundImage:[UIImage resizableImage:@"navigationbar_filter_background_highlighted"] forState:UIControlStateHighlighted];
+    titleBtn.size = CGSizeMake(120, 30);
+    self.navigationItem.titleView = titleBtn;
+    [titleBtn addTarget:self action:@selector(clickTitle) forControlEvents:UIControlEventTouchUpInside];
+    self.titleBtn = titleBtn;
+    
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_friendsearch" HightImage:@"navigationbar_friendsearch_highlighted" target:self action:@selector(friendsearch)];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" HightImage:@"navigationbar_pop_highlighted" target:self action:@selector(pop)];
 }
 
+
+- (void)clickTitle {
+    
+    UIImage *image = [UIImage imageNamed:@"navigationbar_arrow_down"];
+    
+    if (self.titleBtn.currentImage) {
+        
+        [self.titleBtn setImage:image forState:UIControlStateNormal];
+        
+        //弹出菜单
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeContactAdd];
+        
+        WKPopMenu *popMenu = [WKPopMenu popMenuWith:btn];
+        popMenu.delegate = self;
+        CGFloat popMenuW = 100;
+        CGFloat popMenuH = 200;
+        CGFloat popMenuY = 55;
+        CGFloat popMenuX = ([UIScreen mainScreen].bounds.size.width - popMenuW) * 0.5;
+        
+        [popMenu showInrect:CGRectMake(popMenuX, popMenuY, popMenuW, popMenuH)];
+    }
+    
+}
+
+- (void)popMenuDidChangeImageRocation:(WKPopMenu *)popMenu {
+
+     [self.titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+
+}
 
 - (void)friendsearch {
 

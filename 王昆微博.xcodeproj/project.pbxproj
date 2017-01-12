@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2504B5B21E27AEC500D6C161 /* WKSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2504B5B11E27AEC500D6C161 /* WKSearchBar.m */; };
+		2504B5B51E27AED200D6C161 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2504B5B41E27AED200D6C161 /* UIImage+Extension.m */; };
 		255A19B91E269B8B00D65A05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 255A19B81E269B8B00D65A05 /* main.m */; };
 		255A19C41E269B8B00D65A05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 255A19C31E269B8B00D65A05 /* Assets.xcassets */; };
 		255A19C71E269B8B00D65A05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 255A19C51E269B8B00D65A05 /* LaunchScreen.storyboard */; };
@@ -21,6 +23,8 @@
 		255A1A301E26A6FE00D65A05 /* WKTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255A1A1B1E26A6FE00D65A05 /* WKTabBarController.m */; };
 		255A1A311E26A6FE00D65A05 /* WKMeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255A1A211E26A6FE00D65A05 /* WKMeTableViewController.m */; };
 		255A1A321E26A6FE00D65A05 /* WKMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255A1A271E26A6FE00D65A05 /* WKMessageTableViewController.m */; };
+		2563B3211E27B39500CFD370 /* WKTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2563B3201E27B39500CFD370 /* WKTitleBtn.m */; };
+		25C3C9411E27BA040033BA35 /* WKPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C3C9401E27BA040033BA35 /* WKPopMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2504B5B01E27AEC500D6C161 /* WKSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKSearchBar.h; sourceTree = "<group>"; };
+		2504B5B11E27AEC500D6C161 /* WKSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSearchBar.m; sourceTree = "<group>"; };
+		2504B5B31E27AED200D6C161 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		2504B5B41E27AED200D6C161 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		255A19B41E269B8B00D65A05 /* 王昆微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "王昆微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		255A19B81E269B8B00D65A05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		255A19C31E269B8B00D65A05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +79,10 @@
 		255A1A261E26A6FE00D65A05 /* WKMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMessageTableViewController.h; sourceTree = "<group>"; };
 		255A1A271E26A6FE00D65A05 /* WKMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMessageTableViewController.m; sourceTree = "<group>"; };
 		255A1A331E26A72E00D65A05 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		2563B31F1E27B39500CFD370 /* WKTitleBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTitleBtn.h; sourceTree = "<group>"; };
+		2563B3201E27B39500CFD370 /* WKTitleBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTitleBtn.m; sourceTree = "<group>"; };
+		25C3C93F1E27BA040033BA35 /* WKPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPopMenu.h; sourceTree = "<group>"; };
+		25C3C9401E27BA040033BA35 /* WKPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPopMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +209,8 @@
 		255A1A081E26A6FE00D65A05 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2504B5B01E27AEC500D6C161 /* WKSearchBar.h */,
+				2504B5B11E27AEC500D6C161 /* WKSearchBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,6 +244,10 @@
 		255A1A0E1E26A6FE00D65A05 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2563B31F1E27B39500CFD370 /* WKTitleBtn.h */,
+				2563B3201E27B39500CFD370 /* WKTitleBtn.m */,
+				25C3C93F1E27BA040033BA35 /* WKPopMenu.h */,
+				25C3C9401E27BA040033BA35 /* WKPopMenu.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,6 +270,8 @@
 				255A1A121E26A6FE00D65A05 /* UIBarButtonItem+Extension.m */,
 				255A1A131E26A6FE00D65A05 /* UIView+Frame.h */,
 				255A1A141E26A6FE00D65A05 /* UIView+Frame.m */,
+				2504B5B31E27AED200D6C161 /* UIImage+Extension.h */,
+				2504B5B41E27AED200D6C161 /* UIImage+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -418,7 +438,7 @@
 				TargetAttributes = {
 					255A19B31E269B8B00D65A05 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8Y2G5F25VK;
+						DevelopmentTeam = QJWLHJJG53;
 						ProvisioningStyle = Automatic;
 					};
 					255A19CC1E269B8B00D65A05 = {
@@ -489,11 +509,15 @@
 				255A1A2C1E26A6FE00D65A05 /* UIBarButtonItem+Extension.m in Sources */,
 				255A1A301E26A6FE00D65A05 /* WKTabBarController.m in Sources */,
 				255A1A2F1E26A6FE00D65A05 /* WKNavigationController.m in Sources */,
+				2504B5B51E27AED200D6C161 /* UIImage+Extension.m in Sources */,
+				25C3C9411E27BA040033BA35 /* WKPopMenu.m in Sources */,
 				255A1A2A1E26A6FE00D65A05 /* WKDiscoveryTableViewController.m in Sources */,
+				2504B5B21E27AEC500D6C161 /* WKSearchBar.m in Sources */,
 				255A1A2E1E26A6FE00D65A05 /* AppDelegate.m in Sources */,
 				255A1A321E26A6FE00D65A05 /* WKMessageTableViewController.m in Sources */,
 				255A19B91E269B8B00D65A05 /* main.m in Sources */,
 				255A1A2D1E26A6FE00D65A05 /* UIView+Frame.m in Sources */,
+				2563B3211E27B39500CFD370 /* WKTitleBtn.m in Sources */,
 				255A1A2B1E26A6FE00D65A05 /* WKHomeTableViewController.m in Sources */,
 				255A1A311E26A6FE00D65A05 /* WKMeTableViewController.m in Sources */,
 			);
@@ -635,11 +659,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 8Y2G5F25VK;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = QJWLHJJG53;
 				GCC_PREFIX_HEADER = "王昆微博/Classes/Main/Controller/PrefixHeader.pch";
 				INFOPLIST_FILE = "王昆微博/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.colorfulclouds.app.----";
+				PRODUCT_BUNDLE_IDENTIFIER = "----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -649,11 +674,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 8Y2G5F25VK;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = QJWLHJJG53;
 				GCC_PREFIX_HEADER = "王昆微博/Classes/Main/Controller/PrefixHeader.pch";
 				INFOPLIST_FILE = "王昆微博/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.colorfulclouds.app.----";
+				PRODUCT_BUNDLE_IDENTIFIER = "----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -727,6 +753,7 @@
 				255A19E31E269B8B00D65A05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		255A19E41E269B8B00D65A05 /* Build configuration list for PBXNativeTarget "王昆微博Tests" */ = {
 			isa = XCConfigurationList;
@@ -735,6 +762,7 @@
 				255A19E61E269B8B00D65A05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		255A19E71E269B8B00D65A05 /* Build configuration list for PBXNativeTarget "王昆微博UITests" */ = {
 			isa = XCConfigurationList;
@@ -743,6 +771,7 @@
 				255A19E91E269B8B00D65A05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

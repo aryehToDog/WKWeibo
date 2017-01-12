@@ -17,24 +17,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
 }
 
-
+/**
+ 这个方法的作用是在加载这个类的时候只调用一次
+ */
 + (void)initialize {
 
-    //设置外观对象
+    //设置nabBar
+    [self setUpNabBar];
+    
+    //设置barButtonItem
+    [self setUpBarButtonItem];
+
+}
+
++ (void)setUpNabBar {
+
+    UINavigationBar *appearce = [UINavigationBar appearance];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[NSForegroundColorAttributeName] = [UIColor blackColor];
+    dict[NSFontAttributeName] = [UIFont systemFontOfSize:20];
+    dict[NSBaselineOffsetAttributeName] = [NSValue valueWithCGPoint:CGPointZero];
+    
+    [appearce setTitleTextAttributes:dict];
+}
+
++ (void)setUpBarButtonItem {
+
     UIBarButtonItem *item = [UIBarButtonItem appearance];
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    dict[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    dict[NSForegroundColorAttributeName] = [UIColor blackColor];
+    dict[NSFontAttributeName] = [UIFont systemFontOfSize:16];
     [item setTitleTextAttributes:dict forState:UIControlStateNormal];
     
     NSMutableDictionary *hightDict = [NSMutableDictionary dictionary];
-    hightDict[NSForegroundColorAttributeName] = [UIColor redColor];
-    hightDict[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    hightDict[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    hightDict[NSFontAttributeName] = [UIFont systemFontOfSize:16];
     [item setTitleTextAttributes:hightDict forState:UIControlStateHighlighted];
 
 }

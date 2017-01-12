@@ -25,6 +25,10 @@
     [self setUpOneVc];
 }
 
+
+/**
+ 创建子控制器
+ */
 - (void)setUpOneVc {
 
     WKHomeTableViewController *homeVc = [[WKHomeTableViewController alloc]init];
@@ -40,6 +44,7 @@
     [self addOneChildVc:meVc title:@"我" image:@"tabbar_profile" selectImage:@"tabbar_profile_selected"];
 }
 
+
 - (void)addOneChildVc: (UIViewController *)childVc title: (NSString *)title image: (NSString *)image selectImage: (NSString *)selectImage{
 
     childVc.tabBarItem.title = title;
@@ -53,8 +58,6 @@
     childVc.tabBarItem.selectedImage = selectedImage;
     WKNavigationController *navVc = [[WKNavigationController alloc]initWithRootViewController:childVc];
     [self addChildViewController:navVc];
-
-
 }
 
 @end
