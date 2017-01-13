@@ -27,4 +27,6 @@
 - (void)showInrect: (CGRect)rect;
 
 - (void)dismiss;
+
+
 @end

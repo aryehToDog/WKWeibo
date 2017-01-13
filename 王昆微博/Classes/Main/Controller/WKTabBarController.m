@@ -33,13 +33,13 @@
 
 
 #pragma makr - <WKTabBarDelegate>
-- (void)tabBarDidClickPublish:(WKTabBar *)tabBar {
-
-    WKPublishViewController *publishVc = [[WKPublishViewController alloc]init];
-    WKNavigationController *nav = [[WKNavigationController alloc]initWithRootViewController:publishVc];
-    
-    [self presentViewController:nav animated:YES completion:nil];
-}
+//- (void)tabBarDidClickPublish:(WKTabBar *)tabBar {
+//
+//    WKPublishViewController *publishVc = [[WKPublishViewController alloc]init];
+//    WKNavigationController *nav = [[WKNavigationController alloc]initWithRootViewController:publishVc];
+//    
+//    [self presentViewController:nav animated:YES completion:nil];
+//}
 
 
 /**

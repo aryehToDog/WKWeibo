@@ -11,6 +11,7 @@
 		2504B5B51E27AED200D6C161 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2504B5B41E27AED200D6C161 /* UIImage+Extension.m */; };
 		252507131E287741008F607A /* WKTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 252507121E287741008F607A /* WKTabBar.m */; };
 		2525071A1E289A76008F607A /* WKPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252507191E289A76008F607A /* WKPublishViewController.m */; };
+		2525071D1E28D7F5008F607A /* WKNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2525071C1E28D7F5008F607A /* WKNewFeatureViewController.m */; };
 		255A19B91E269B8B00D65A05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 255A19B81E269B8B00D65A05 /* main.m */; };
 		255A19C41E269B8B00D65A05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 255A19C31E269B8B00D65A05 /* Assets.xcassets */; };
 		255A19C71E269B8B00D65A05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 255A19C51E269B8B00D65A05 /* LaunchScreen.storyboard */; };
@@ -27,6 +28,7 @@
 		255A1A321E26A6FE00D65A05 /* WKMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255A1A271E26A6FE00D65A05 /* WKMessageTableViewController.m */; };
 		2563B3211E27B39500CFD370 /* WKTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2563B3201E27B39500CFD370 /* WKTitleBtn.m */; };
 		25C3C9411E27BA040033BA35 /* WKPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C3C9401E27BA040033BA35 /* WKPopMenu.m */; };
+		B6C23DE5115B52F6642044F1 /* libPods-王昆微博.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F97E40AE44262C7A7E81F2BE /* libPods-王昆微博.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		252507121E287741008F607A /* WKTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTabBar.m; sourceTree = "<group>"; };
 		252507181E289A76008F607A /* WKPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPublishViewController.h; sourceTree = "<group>"; };
 		252507191E289A76008F607A /* WKPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPublishViewController.m; sourceTree = "<group>"; };
+		2525071B1E28D7F5008F607A /* WKNewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKNewFeatureViewController.h; sourceTree = "<group>"; };
+		2525071C1E28D7F5008F607A /* WKNewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKNewFeatureViewController.m; sourceTree = "<group>"; };
 		255A19B41E269B8B00D65A05 /* 王昆微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "王昆微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		255A19B81E269B8B00D65A05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		255A19C31E269B8B00D65A05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +93,9 @@
 		2563B3201E27B39500CFD370 /* WKTitleBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTitleBtn.m; sourceTree = "<group>"; };
 		25C3C93F1E27BA040033BA35 /* WKPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPopMenu.h; sourceTree = "<group>"; };
 		25C3C9401E27BA040033BA35 /* WKPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPopMenu.m; sourceTree = "<group>"; };
+		7E534327B0BA664B9337AE19 /* Pods-王昆微博.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-王昆微博.release.xcconfig"; path = "Pods/Target Support Files/Pods-王昆微博/Pods-王昆微博.release.xcconfig"; sourceTree = "<group>"; };
+		E5AA33D6C385761796435D04 /* Pods-王昆微博.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-王昆微博.debug.xcconfig"; path = "Pods/Target Support Files/Pods-王昆微博/Pods-王昆微博.debug.xcconfig"; sourceTree = "<group>"; };
+		F97E40AE44262C7A7E81F2BE /* libPods-王昆微博.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-王昆微博.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6C23DE5115B52F6642044F1 /* libPods-王昆微博.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +164,8 @@
 				255A19D01E269B8B00D65A05 /* 王昆微博Tests */,
 				255A19DB1E269B8B00D65A05 /* 王昆微博UITests */,
 				255A19B51E269B8B00D65A05 /* Products */,
+				4C40D0D86DF76FEE058B5739 /* Pods */,
+				7A6BF18C3A584D3588900AE3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -210,8 +220,8 @@
 		255A1A021E26A6FE00D65A05 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				252507141E289A64008F607A /* Publish */,
 				255A1A0F1E26A6FE00D65A05 /* Main */,
+				252507141E289A64008F607A /* Publish */,
 				255A1A091E26A6FE00D65A05 /* Home */,
 				255A1A241E26A6FE00D65A05 /* Message */,
 				255A1A031E26A6FE00D65A05 /* Discorvey */,
@@ -321,6 +331,8 @@
 			children = (
 				255A1A161E26A6FE00D65A05 /* AppDelegate.h */,
 				255A1A171E26A6FE00D65A05 /* AppDelegate.m */,
+				2525071B1E28D7F5008F607A /* WKNewFeatureViewController.h */,
+				2525071C1E28D7F5008F607A /* WKNewFeatureViewController.m */,
 				255A1A181E26A6FE00D65A05 /* WKNavigationController.h */,
 				255A1A191E26A6FE00D65A05 /* WKNavigationController.m */,
 				255A1A1A1E26A6FE00D65A05 /* WKTabBarController.h */,
@@ -412,6 +424,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4C40D0D86DF76FEE058B5739 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5AA33D6C385761796435D04 /* Pods-王昆微博.debug.xcconfig */,
+				7E534327B0BA664B9337AE19 /* Pods-王昆微博.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7A6BF18C3A584D3588900AE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F97E40AE44262C7A7E81F2BE /* libPods-王昆微博.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -419,9 +448,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 255A19E11E269B8B00D65A05 /* Build configuration list for PBXNativeTarget "王昆微博" */;
 			buildPhases = (
+				51AD9FCC44498E1015DE9FE4 /* [CP] Check Pods Manifest.lock */,
 				255A19B01E269B8B00D65A05 /* Sources */,
 				255A19B11E269B8B00D65A05 /* Frameworks */,
 				255A19B21E269B8B00D65A05 /* Resources */,
+				CD9E1E26442AB1A71684486C /* [CP] Embed Pods Frameworks */,
+				6D94BC213631EC059408B47B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -543,12 +575,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		51AD9FCC44498E1015DE9FE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6D94BC213631EC059408B47B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-王昆微博/Pods-王昆微博-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD9E1E26442AB1A71684486C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-王昆微博/Pods-王昆微博-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		255A19B01E269B8B00D65A05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				255A1A2C1E26A6FE00D65A05 /* UIBarButtonItem+Extension.m in Sources */,
+				2525071D1E28D7F5008F607A /* WKNewFeatureViewController.m in Sources */,
 				255A1A301E26A6FE00D65A05 /* WKTabBarController.m in Sources */,
 				255A1A2F1E26A6FE00D65A05 /* WKNavigationController.m in Sources */,
 				2504B5B51E27AED200D6C161 /* UIImage+Extension.m in Sources */,
@@ -700,6 +781,7 @@
 		};
 		255A19E21E269B8B00D65A05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5AA33D6C385761796435D04 /* Pods-王昆微博.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -715,6 +797,7 @@
 		};
 		255A19E31E269B8B00D65A05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E534327B0BA664B9337AE19 /* Pods-王昆微博.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

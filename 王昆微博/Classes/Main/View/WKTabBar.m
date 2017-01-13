@@ -7,7 +7,8 @@
 //
 
 #import "WKTabBar.h"
-
+#import "WKNavigationController.h"
+#import "WKPublishViewController.h"
 @interface WKTabBar ()
 
 @property (nonatomic,strong)UIButton *publishBtn;
@@ -41,10 +42,16 @@
     NSLog(@"%s",__func__);
     
     //点击按钮让tabbarController成为代码弹出控制器
-    if ([self.tabBarDelegate respondsToSelector:@selector(tabBarDidClickPublish:)]) {
-        
-        [self.tabBarDelegate tabBarDidClickPublish:self];
-    }
+//    if ([self.tabBarDelegate respondsToSelector:@selector(tabBarDidClickPublish:)]) {
+//        
+//        [self.tabBarDelegate tabBarDidClickPublish:self];
+//    }
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    WKPublishViewController *publishVc = [[WKPublishViewController alloc]init];
+    WKNavigationController *nav = [[WKNavigationController alloc]initWithRootViewController:publishVc];
+    [window.rootViewController presentViewController:nav animated:YES completion:nil];
+    
 }
 
 - (void)layoutSubviews {
