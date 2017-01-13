@@ -12,7 +12,9 @@
 #import "WKDiscoveryTableViewController.h"
 #import "WKMeTableViewController.h"
 #import "WKNavigationController.h"
-@interface WKTabBarController ()
+#import "WKTabBar.h"
+#import "WKPublishViewController.h"
+@interface WKTabBarController ()<WKTabBarDelegate>
 
 @end
 
@@ -23,6 +25,20 @@
     // Do any additional setup after loading the view.
     
     [self setUpOneVc];
+    
+    WKTabBar *wkTabBar = [[WKTabBar alloc]init];
+    wkTabBar.tabBarDelegate = self;
+    [self setValue:wkTabBar forKeyPath:@"tabBar"];
+}
+
+
+#pragma makr - <WKTabBarDelegate>
+- (void)tabBarDidClickPublish:(WKTabBar *)tabBar {
+
+    WKPublishViewController *publishVc = [[WKPublishViewController alloc]init];
+    WKNavigationController *nav = [[WKNavigationController alloc]initWithRootViewController:publishVc];
+    
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 

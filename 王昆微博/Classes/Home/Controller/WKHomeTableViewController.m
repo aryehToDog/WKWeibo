@@ -27,7 +27,7 @@
 
     //设置menuView
     WKTitleBtn *titleBtn = [[WKTitleBtn alloc]init];
-    [titleBtn setTitle:@"首页" forState:UIControlStateNormal];
+    [titleBtn setTitle:@"阿拉斯加的狗" forState:UIControlStateNormal];
     [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     [titleBtn setBackgroundImage:[UIImage resizableImage:@"navigationbar_filter_background_highlighted"] forState:UIControlStateHighlighted];
     titleBtn.size = CGSizeMake(120, 30);

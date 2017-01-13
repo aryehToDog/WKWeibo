@@ -16,6 +16,7 @@
     if (self == [super initWithFrame:frame]) {
      
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        self.titleLabel.font = [UIFont systemFontOfSize:14];
         self.adjustsImageWhenHighlighted = NO;
         
         self.imageView.contentMode = UIViewContentModeCenter;
@@ -31,8 +32,8 @@
 - (CGRect)imageRectForContentRect:(CGRect)contentRect {
 
     CGFloat imageY = 0;
-    CGFloat imageH = self.height;
-    CGFloat imageW = imageH;
+    CGFloat imageW = self.height;
+    CGFloat imageH = imageW;
     CGFloat imageX = self.width - imageW;
     return  CGRectMake(imageX, imageY, imageW, imageH);
     
@@ -43,8 +44,8 @@
 
     CGFloat titleY = 0;
     CGFloat titleX = 0;
-    CGFloat titleW = self.width - self.imageView.width;
     CGFloat titleH = self.height;
+    CGFloat titleW = self.width - self.height;
     return  CGRectMake(titleX, titleY, titleW, titleH);
 
 }

@@ -37,7 +37,7 @@
     UINavigationBar *appearce = [UINavigationBar appearance];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     dict[NSForegroundColorAttributeName] = [UIColor blackColor];
-    dict[NSFontAttributeName] = [UIFont systemFontOfSize:20];
+    dict[NSFontAttributeName] = [UIFont systemFontOfSize:16];
     dict[NSBaselineOffsetAttributeName] = [NSValue valueWithCGPoint:CGPointZero];
     
     [appearce setTitleTextAttributes:dict];
@@ -49,13 +49,18 @@
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     dict[NSForegroundColorAttributeName] = [UIColor blackColor];
-    dict[NSFontAttributeName] = [UIFont systemFontOfSize:16];
+    dict[NSFontAttributeName] = [UIFont systemFontOfSize:14];
     [item setTitleTextAttributes:dict forState:UIControlStateNormal];
     
     NSMutableDictionary *hightDict = [NSMutableDictionary dictionary];
     hightDict[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    hightDict[NSFontAttributeName] = [UIFont systemFontOfSize:16];
+    hightDict[NSFontAttributeName] = [UIFont systemFontOfSize:14];
     [item setTitleTextAttributes:hightDict forState:UIControlStateHighlighted];
+    
+    NSMutableDictionary *disDict = [NSMutableDictionary dictionary];
+    disDict[NSForegroundColorAttributeName] = [UIColor blueColor];
+    disDict[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    [item setTitleTextAttributes:disDict forState:UIControlStateDisabled];
 
 }
 
