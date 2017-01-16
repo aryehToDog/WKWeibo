@@ -7,10 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "WKTabBarController.h"
-#import "WKNewFeatureViewController.h"
+#import "WKAccountTool.h"
+#import "WKOauthViewController.h"
+#import "WKAccountControllerTool.h"
+#import "WKAccount.h"
+#import <UIImageView+WebCache.h>
 
-#define  WKVersionKey @"CFBundleShortVersionString"
 @interface AppDelegate ()
 
 @end
@@ -23,31 +25,30 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    //获取到老的版本
-   NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:WKVersionKey];
+    [self.window makeKeyAndVisible];
+
     
-    //获取到新的版本
-    NSString *newVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:WKVersionKey];
+    WKAccount *account = [WKAccountTool getAccount];
     
-    if ([lastVersion isEqualToString:newVersion]) {
+    if (account) {
         
-        WKTabBarController *tabBarVc = [[WKTabBarController alloc]init];
-        self.window.rootViewController = tabBarVc;
+        [WKAccountControllerTool getVersionController];
     }else {
-    
-        //不相等就进入新特性界面
-        WKNewFeatureViewController *newFeatureVc = [[WKNewFeatureViewController alloc]init];
-        self.window.rootViewController = newFeatureVc;
-        
-        //保存本次的版本号
-        [[NSUserDefaults standardUserDefaults]setObject:newVersion forKey:WKVersionKey];
+        WKOauthViewController *oauthVc = [[WKOauthViewController alloc]init];
+        self.window.rootViewController = oauthVc;
     }
 
-
-    [self.window makeKeyAndVisible];
     return YES;
 }
 
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+
+    
+    [[SDImageCache sharedImageCache] clearMemory];
+    [[SDWebImageManager sharedManager] cancelAll];
+
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

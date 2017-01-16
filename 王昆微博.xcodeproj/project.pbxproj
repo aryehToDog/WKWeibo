@@ -28,6 +28,14 @@
 		255A1A321E26A6FE00D65A05 /* WKMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255A1A271E26A6FE00D65A05 /* WKMessageTableViewController.m */; };
 		2563B3211E27B39500CFD370 /* WKTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2563B3201E27B39500CFD370 /* WKTitleBtn.m */; };
 		25C3C9411E27BA040033BA35 /* WKPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C3C9401E27BA040033BA35 /* WKPopMenu.m */; };
+		25DD0DF81E2B325400DAE4A6 /* WKOauthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0DF71E2B325400DAE4A6 /* WKOauthViewController.m */; };
+		25DD0DFB1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0DFA1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m */; };
+		25DD0DFE1E2B420500DAE4A6 /* WKAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0DFD1E2B420500DAE4A6 /* WKAccount.m */; };
+		25DD0E021E2B48BF00DAE4A6 /* WKAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0E011E2B48BF00DAE4A6 /* WKAccountTool.m */; };
+		25DD0E051E2B4B3C00DAE4A6 /* WKAccountControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0E041E2B4B3C00DAE4A6 /* WKAccountControllerTool.m */; };
+		25DD0E071E2B549200DAE4A6 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0E061E2B549200DAE4A6 /* Foundation+Log.m */; };
+		25DD0E0A1E2B54E100DAE4A6 /* WKStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0E091E2B54E100DAE4A6 /* WKStatus.m */; };
+		25DD0E0D1E2B54EC00DAE4A6 /* WKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0E0C1E2B54EC00DAE4A6 /* WKUser.m */; };
 		B6C23DE5115B52F6642044F1 /* libPods-王昆微博.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F97E40AE44262C7A7E81F2BE /* libPods-王昆微博.a */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +101,21 @@
 		2563B3201E27B39500CFD370 /* WKTitleBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTitleBtn.m; sourceTree = "<group>"; };
 		25C3C93F1E27BA040033BA35 /* WKPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPopMenu.h; sourceTree = "<group>"; };
 		25C3C9401E27BA040033BA35 /* WKPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPopMenu.m; sourceTree = "<group>"; };
+		25DD0DF61E2B325400DAE4A6 /* WKOauthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKOauthViewController.h; sourceTree = "<group>"; };
+		25DD0DF71E2B325400DAE4A6 /* WKOauthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKOauthViewController.m; sourceTree = "<group>"; };
+		25DD0DF91E2B3F2900DAE4A6 /* WKHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHTTPSessionManager.h; sourceTree = "<group>"; };
+		25DD0DFA1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHTTPSessionManager.m; sourceTree = "<group>"; };
+		25DD0DFC1E2B420500DAE4A6 /* WKAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKAccount.h; sourceTree = "<group>"; };
+		25DD0DFD1E2B420500DAE4A6 /* WKAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKAccount.m; sourceTree = "<group>"; };
+		25DD0E001E2B48BF00DAE4A6 /* WKAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKAccountTool.h; sourceTree = "<group>"; };
+		25DD0E011E2B48BF00DAE4A6 /* WKAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKAccountTool.m; sourceTree = "<group>"; };
+		25DD0E031E2B4B3C00DAE4A6 /* WKAccountControllerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKAccountControllerTool.h; sourceTree = "<group>"; };
+		25DD0E041E2B4B3C00DAE4A6 /* WKAccountControllerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKAccountControllerTool.m; sourceTree = "<group>"; };
+		25DD0E061E2B549200DAE4A6 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		25DD0E081E2B54E100DAE4A6 /* WKStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKStatus.h; sourceTree = "<group>"; };
+		25DD0E091E2B54E100DAE4A6 /* WKStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKStatus.m; sourceTree = "<group>"; };
+		25DD0E0B1E2B54EC00DAE4A6 /* WKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUser.h; sourceTree = "<group>"; };
+		25DD0E0C1E2B54EC00DAE4A6 /* WKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUser.m; sourceTree = "<group>"; };
 		7E534327B0BA664B9337AE19 /* Pods-王昆微博.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-王昆微博.release.xcconfig"; path = "Pods/Target Support Files/Pods-王昆微博/Pods-王昆微博.release.xcconfig"; sourceTree = "<group>"; };
 		E5AA33D6C385761796435D04 /* Pods-王昆微博.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-王昆微博.debug.xcconfig"; path = "Pods/Target Support Files/Pods-王昆微博/Pods-王昆微博.debug.xcconfig"; sourceTree = "<group>"; };
 		F97E40AE44262C7A7E81F2BE /* libPods-王昆微博.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-王昆微博.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +243,7 @@
 		255A1A021E26A6FE00D65A05 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				25DD0DF21E2B324400DAE4A6 /* Oauth */,
 				255A1A0F1E26A6FE00D65A05 /* Main */,
 				252507141E289A64008F607A /* Publish */,
 				255A1A091E26A6FE00D65A05 /* Home */,
@@ -287,6 +311,10 @@
 		255A1A0D1E26A6FE00D65A05 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25DD0E081E2B54E100DAE4A6 /* WKStatus.h */,
+				25DD0E091E2B54E100DAE4A6 /* WKStatus.m */,
+				25DD0E0B1E2B54EC00DAE4A6 /* WKUser.h */,
+				25DD0E0C1E2B54EC00DAE4A6 /* WKUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,12 +344,15 @@
 		255A1A101E26A6FE00D65A05 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				25DD0E061E2B549200DAE4A6 /* Foundation+Log.m */,
 				255A1A111E26A6FE00D65A05 /* UIBarButtonItem+Extension.h */,
 				255A1A121E26A6FE00D65A05 /* UIBarButtonItem+Extension.m */,
 				255A1A131E26A6FE00D65A05 /* UIView+Frame.h */,
 				255A1A141E26A6FE00D65A05 /* UIView+Frame.m */,
 				2504B5B31E27AED200D6C161 /* UIImage+Extension.h */,
 				2504B5B41E27AED200D6C161 /* UIImage+Extension.m */,
+				25DD0DF91E2B3F2900DAE4A6 /* WKHTTPSessionManager.h */,
+				25DD0DFA1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -422,6 +453,53 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		25DD0DF21E2B324400DAE4A6 /* Oauth */ = {
+			isa = PBXGroup;
+			children = (
+				25DD0DFF1E2B48AA00DAE4A6 /* Tool */,
+				25DD0DF31E2B324400DAE4A6 /* Controller */,
+				25DD0DF41E2B324400DAE4A6 /* Model */,
+				25DD0DF51E2B324400DAE4A6 /* View */,
+			);
+			path = Oauth;
+			sourceTree = "<group>";
+		};
+		25DD0DF31E2B324400DAE4A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				25DD0DF61E2B325400DAE4A6 /* WKOauthViewController.h */,
+				25DD0DF71E2B325400DAE4A6 /* WKOauthViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		25DD0DF41E2B324400DAE4A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				25DD0DFC1E2B420500DAE4A6 /* WKAccount.h */,
+				25DD0DFD1E2B420500DAE4A6 /* WKAccount.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		25DD0DF51E2B324400DAE4A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		25DD0DFF1E2B48AA00DAE4A6 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				25DD0E001E2B48BF00DAE4A6 /* WKAccountTool.h */,
+				25DD0E011E2B48BF00DAE4A6 /* WKAccountTool.m */,
+				25DD0E031E2B4B3C00DAE4A6 /* WKAccountControllerTool.h */,
+				25DD0E041E2B4B3C00DAE4A6 /* WKAccountControllerTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		4C40D0D86DF76FEE058B5739 /* Pods */ = {
@@ -631,20 +709,28 @@
 				255A1A2C1E26A6FE00D65A05 /* UIBarButtonItem+Extension.m in Sources */,
 				2525071D1E28D7F5008F607A /* WKNewFeatureViewController.m in Sources */,
 				255A1A301E26A6FE00D65A05 /* WKTabBarController.m in Sources */,
+				25DD0E0A1E2B54E100DAE4A6 /* WKStatus.m in Sources */,
 				255A1A2F1E26A6FE00D65A05 /* WKNavigationController.m in Sources */,
 				2504B5B51E27AED200D6C161 /* UIImage+Extension.m in Sources */,
 				25C3C9411E27BA040033BA35 /* WKPopMenu.m in Sources */,
 				255A1A2A1E26A6FE00D65A05 /* WKDiscoveryTableViewController.m in Sources */,
 				2504B5B21E27AEC500D6C161 /* WKSearchBar.m in Sources */,
+				25DD0DFB1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m in Sources */,
 				255A1A2E1E26A6FE00D65A05 /* AppDelegate.m in Sources */,
+				25DD0E021E2B48BF00DAE4A6 /* WKAccountTool.m in Sources */,
 				252507131E287741008F607A /* WKTabBar.m in Sources */,
 				255A1A321E26A6FE00D65A05 /* WKMessageTableViewController.m in Sources */,
+				25DD0E0D1E2B54EC00DAE4A6 /* WKUser.m in Sources */,
 				255A19B91E269B8B00D65A05 /* main.m in Sources */,
+				25DD0DFE1E2B420500DAE4A6 /* WKAccount.m in Sources */,
+				25DD0DF81E2B325400DAE4A6 /* WKOauthViewController.m in Sources */,
 				255A1A2D1E26A6FE00D65A05 /* UIView+Frame.m in Sources */,
 				2525071A1E289A76008F607A /* WKPublishViewController.m in Sources */,
 				2563B3211E27B39500CFD370 /* WKTitleBtn.m in Sources */,
 				255A1A2B1E26A6FE00D65A05 /* WKHomeTableViewController.m in Sources */,
 				255A1A311E26A6FE00D65A05 /* WKMeTableViewController.m in Sources */,
+				25DD0E071E2B549200DAE4A6 /* Foundation+Log.m in Sources */,
+				25DD0E051E2B4B3C00DAE4A6 /* WKAccountControllerTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
