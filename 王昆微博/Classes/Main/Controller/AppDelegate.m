@@ -12,6 +12,8 @@
 #import "WKAccountControllerTool.h"
 #import "WKAccount.h"
 #import <UIImageView+WebCache.h>
+#import <AFNetworking.h>
+#import <SVProgressHUD.h>
 
 @interface AppDelegate ()
 
@@ -38,14 +40,66 @@
         self.window.rootViewController = oauthVc;
     }
 
+    
+    //监控网络状态
+    [self reachabilityState];
+    
     return YES;
 }
 
 
+/**
+ 监控网络状态
+ AFNetworkReachabilityStatusUnknown          = -1,
+ AFNetworkReachabilityStatusNotReachable     = 0,
+ AFNetworkReachabilityStatusReachableViaWWAN = 1,
+ AFNetworkReachabilityStatusReachableViaWiFi = 2,
+ 
+ */
+- (void)reachabilityState {
+
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+       
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"未知网络");
+                break;
+                
+            case AFNetworkReachabilityStatusNotReachable:
+                
+                [SVProgressHUD showWithStatus:@"请检查您的网络设置..."];
+                
+                NSLog(@"没有网络");
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                NSLog(@"自带网络");
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                NSLog(@"WIFI");
+                break;
+                
+            default:
+                break;
+        }
+    }];
+
+    //开始检测
+    [mgr startMonitoring];
+}
+
+- (void)dealloc {
+
+    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+}
+
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
 
-    
+    //清除磁盘缓存
     [[SDImageCache sharedImageCache] clearMemory];
+    //取消所有的操作
     [[SDWebImageManager sharedManager] cancelAll];
 
 }
