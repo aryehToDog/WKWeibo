@@ -58,7 +58,7 @@
     [item setTitleTextAttributes:hightDict forState:UIControlStateHighlighted];
     
     NSMutableDictionary *disDict = [NSMutableDictionary dictionary];
-    disDict[NSForegroundColorAttributeName] = [UIColor blueColor];
+    disDict[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
     disDict[NSFontAttributeName] = [UIFont systemFontOfSize:14];
     [item setTitleTextAttributes:disDict forState:UIControlStateDisabled];
 

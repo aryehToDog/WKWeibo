@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2504B5B21E27AEC500D6C161 /* WKSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2504B5B11E27AEC500D6C161 /* WKSearchBar.m */; };
 		2504B5B51E27AED200D6C161 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2504B5B41E27AED200D6C161 /* UIImage+Extension.m */; };
+		2509401E1E2C9FF600659B53 /* WKTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2509401D1E2C9FF600659B53 /* WKTextView.m */; };
+		250940211E2CAD4E00659B53 /* WKPublishToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 250940201E2CAD4E00659B53 /* WKPublishToolBar.m */; };
+		250940241E2CCD6200659B53 /* WKPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 250940231E2CCD6200659B53 /* WKPictureView.m */; };
 		252507131E287741008F607A /* WKTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 252507121E287741008F607A /* WKTabBar.m */; };
 		2525071A1E289A76008F607A /* WKPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252507191E289A76008F607A /* WKPublishViewController.m */; };
 		2525071D1E28D7F5008F607A /* WKNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2525071C1E28D7F5008F607A /* WKNewFeatureViewController.m */; };
@@ -61,6 +64,12 @@
 		2504B5B11E27AEC500D6C161 /* WKSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSearchBar.m; sourceTree = "<group>"; };
 		2504B5B31E27AED200D6C161 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		2504B5B41E27AED200D6C161 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		2509401C1E2C9FF600659B53 /* WKTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTextView.h; sourceTree = "<group>"; };
+		2509401D1E2C9FF600659B53 /* WKTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTextView.m; sourceTree = "<group>"; };
+		2509401F1E2CAD4E00659B53 /* WKPublishToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPublishToolBar.h; sourceTree = "<group>"; };
+		250940201E2CAD4E00659B53 /* WKPublishToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPublishToolBar.m; sourceTree = "<group>"; };
+		250940221E2CCD6200659B53 /* WKPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPictureView.h; sourceTree = "<group>"; };
+		250940231E2CCD6200659B53 /* WKPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPictureView.m; sourceTree = "<group>"; };
 		252507111E287741008F607A /* WKTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTabBar.h; sourceTree = "<group>"; };
 		252507121E287741008F607A /* WKTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTabBar.m; sourceTree = "<group>"; };
 		252507181E289A76008F607A /* WKPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPublishViewController.h; sourceTree = "<group>"; };
@@ -176,6 +185,12 @@
 		252507171E289A64008F607A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2509401C1E2C9FF600659B53 /* WKTextView.h */,
+				2509401D1E2C9FF600659B53 /* WKTextView.m */,
+				2509401F1E2CAD4E00659B53 /* WKPublishToolBar.h */,
+				250940201E2CAD4E00659B53 /* WKPublishToolBar.m */,
+				250940221E2CCD6200659B53 /* WKPictureView.h */,
+				250940231E2CCD6200659B53 /* WKPictureView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -709,6 +724,7 @@
 				255A1A2C1E26A6FE00D65A05 /* UIBarButtonItem+Extension.m in Sources */,
 				2525071D1E28D7F5008F607A /* WKNewFeatureViewController.m in Sources */,
 				255A1A301E26A6FE00D65A05 /* WKTabBarController.m in Sources */,
+				250940241E2CCD6200659B53 /* WKPictureView.m in Sources */,
 				25DD0E0A1E2B54E100DAE4A6 /* WKStatus.m in Sources */,
 				255A1A2F1E26A6FE00D65A05 /* WKNavigationController.m in Sources */,
 				2504B5B51E27AED200D6C161 /* UIImage+Extension.m in Sources */,
@@ -728,7 +744,9 @@
 				2525071A1E289A76008F607A /* WKPublishViewController.m in Sources */,
 				2563B3211E27B39500CFD370 /* WKTitleBtn.m in Sources */,
 				255A1A2B1E26A6FE00D65A05 /* WKHomeTableViewController.m in Sources */,
+				250940211E2CAD4E00659B53 /* WKPublishToolBar.m in Sources */,
 				255A1A311E26A6FE00D65A05 /* WKMeTableViewController.m in Sources */,
+				2509401E1E2C9FF600659B53 /* WKTextView.m in Sources */,
 				25DD0E071E2B549200DAE4A6 /* Foundation+Log.m in Sources */,
 				25DD0E051E2B4B3C00DAE4A6 /* WKAccountControllerTool.m in Sources */,
 			);
