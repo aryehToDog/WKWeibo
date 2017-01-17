@@ -12,6 +12,7 @@
 #import "WKAccount.h"
 #import "WKAccountTool.h"
 #import "WKAccountControllerTool.h"
+#import "WKHttpTool.h"
 @interface WKOauthViewController ()<UIWebViewDelegate>
 
 @end
@@ -32,10 +33,7 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
-    
-    
 }
-
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
 
@@ -55,35 +53,26 @@
         
         return NO;
     }
-    
-    
-    
     return YES;
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
 
     [SVProgressHUD showWithStatus:@"正在加载中..."];
-    
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
 
     [SVProgressHUD dismiss];
-    
 }
-
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 
     [SVProgressHUD showWithStatus:@"加载失败..."];
-
 }
 
 
 - (void)loadAccesstoken: (NSString *)code {
-
-    WKHTTPSessionManager *manager = [WKHTTPSessionManager shareManager];
     
     NSString *url = @"https://api.weibo.com/oauth2/access_token";
     NSMutableDictionary *parame = [NSMutableDictionary dictionary];
@@ -93,10 +82,7 @@
     parame[@"code"] = code;
     parame[@"redirect_uri"] = @"http://www.jianshu.com/u/a54931de4c9b";
     
-    [manager POST:url parameters:parame progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+    [WKHttpTool postWithUrl:url parameters:parame success:^(id responseObject) {
         //取消加载提示
         [SVProgressHUD dismiss];
         
@@ -105,17 +91,10 @@
         [WKAccountTool saveAccount:account];
         
         [WKAccountControllerTool getVersionController];
-     
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+    } failure:^(NSError *error) {
         //请求失败
         NSLog(@"%@",error);
-        
     }];
-    
-
-
-
 }
 
 @end

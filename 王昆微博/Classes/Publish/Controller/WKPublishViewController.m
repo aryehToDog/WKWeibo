@@ -10,10 +10,10 @@
 #import "WKTextView.h"
 #import "WKPublishToolBar.h"
 #import "WKPictureView.h"
-#import "WKHTTPSessionManager.h"
 #import "WKAccount.h"
 #import "WKAccountTool.h"
 #import <SVProgressHUD.h>
+#import "WKHttpTool.h"
 @interface WKPublishViewController ()<WKPublishToolBarDelegate,UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic,strong)WKTextView *textView;
@@ -216,43 +216,39 @@
  */
 - (void)sendPictureMessage {
     
-    WKHTTPSessionManager *msg = [WKHTTPSessionManager shareManager];
+    
     NSString *url = @"https://upload.api.weibo.com/2/statuses/upload.json";
     NSMutableDictionary *parame = [NSMutableDictionary dictionary];
     parame[@"access_token"] = [WKAccountTool getAccount].access_token;
     parame[@"status"] = self.textView.text;
     
-    [msg POST:url parameters:parame constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        
+    [WKHttpTool postDownloadWithUrl:url parameters:parame data:^(id formData) {
         UIImage *image = [self.pictureView.getImage firstObject];
         NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
         
         [formData appendPartWithFileData:imageData name:@"pic" fileName:@"statue.jpg" mimeType:@"image/jpeg"];
         
-    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+    } success:^(id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"微博发送成功"];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [SVProgressHUD showErrorWithStatus:@"微博发送失败"];
+    } failure:^(NSError *error) {
+         [SVProgressHUD showErrorWithStatus:@"微博发送失败"];
     }];
 }
 
 - (void)sendeMessage {
-    
-    WKHTTPSessionManager *msg = [WKHTTPSessionManager shareManager];
-    
+  
     NSString *url = @"https://api.weibo.com/2/statuses/update.json";
     NSMutableDictionary *parame = [NSMutableDictionary dictionary];
     parame[@"access_token"] = [WKAccountTool getAccount].access_token;
     parame[@"status"] = self.textView.text;
-    [msg POST:url parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        [SVProgressHUD showSuccessWithStatus:@"微博发送成功"];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    
+    [WKHttpTool postWithUrl:url parameters:parame success:^(id responseObject) {
+         [SVProgressHUD showSuccessWithStatus:@"微博发送成功"];
+    } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"微博发送失败"];
         NSLog(@"%@",error);
-    }];
-    
+    }];    
 }
 #pragma mark - <UITextViewDelegate>
 /**

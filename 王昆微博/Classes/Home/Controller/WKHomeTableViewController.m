@@ -17,12 +17,12 @@
 #import <UIImageView+WebCache.h>
 #import <MJRefresh.h>
 #import "WKStatus.h"
+#import "WKHttpTool.h"
 
 @interface WKHomeTableViewController ()<WKPopMenuDelegate>
 
 @property (nonatomic,assign)BOOL isSelectImage;
 @property (nonatomic,strong)WKTitleBtn *titleBtn;
-@property (nonatomic,strong)WKHTTPSessionManager *manager;
 @property (nonatomic,strong)NSMutableArray *statusesArray;
 /** 字典请求参数,防止用户请求超时 */
 @property (nonatomic,strong)NSMutableDictionary *parmae;
@@ -38,14 +38,6 @@
     return _parmae;
 }
 
-- (WKHTTPSessionManager *)manager {
-
-    if (_manager == nil) {
-        _manager = [WKHTTPSessionManager shareManager];
-    }
-
-    return _manager;
-}
 
 - (NSMutableArray *)statusesArray {
 
@@ -107,29 +99,28 @@
     
     parame[@"access_token"] = account.access_token;
     self.parmae = parame;
-    [self.manager GET:urlStr parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+    
+    [WKHttpTool getWithUrl:urlStr parameters:parame success:^(id responseObject) {
         
         if (self.parmae != parame) return ;
         
         //字典数组转成模型数组
         NSMutableArray *moreDictArray = [WKStatus mj_objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
- 
+        
         [self.statusesArray addObjectsFromArray:moreDictArray];
         
         [self.tableView reloadData];
         
-        if (moreDictArray.count == self.statusesArray.count) {
+        NSInteger totolCount = [responseObject[@"total_number"] integerValue];
+        
+        if (self.statusesArray.count == totolCount) {
             
             //数据完全加载完成
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }else {
             [self.tableView.mj_footer endRefreshing];
         }
-        
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+    } failure:^(NSError *error) {
         //结束刷新
         [self.tableView.mj_footer endRefreshing];
     }];
@@ -155,8 +146,8 @@
     
     parame[@"access_token"] = account.access_token;
     self.parmae = parame;
-    [self.manager GET:urlStr parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
-      
+    
+    [WKHttpTool getWithUrl:urlStr parameters:parame success:^(id responseObject) {
         if (self.parmae != parame) return ;
         //字典数组转成模型数组
         NSMutableArray *newDictArray = [WKStatus mj_objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
@@ -172,9 +163,7 @@
         [self.tableView reloadData];
         //结束刷新
         [self.tableView.mj_header endRefreshing];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+    } failure:^(NSError *error) {
         //结束刷新
         [self.tableView.mj_header endRefreshing];
     }];
@@ -218,13 +207,6 @@
     }];
 }
 
-- (void)dealloc {
-
-    //控制器销毁移除请求
-    [self.manager.operationQueue cancelAllOperations];
-}
-
-
 - (void)getAccountMessage {
 
     NSString *urlStr = @"https://api.weibo.com/2/users/show.json";
@@ -232,8 +214,7 @@
     parame[@"access_token"] = [WKAccountTool getAccount].access_token;
     parame[@"uid"] = [WKAccountTool getAccount].uid;
     
-    [self.manager GET:urlStr parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+    [WKHttpTool getWithUrl:urlStr parameters:parame success:^(id responseObject) {
         //获取用户账号信息
         WKUser *user = [WKUser mj_objectWithKeyValues:responseObject];
         // 设置用户的昵称为标题
@@ -243,9 +224,9 @@
         acount.name = user.screen_name;
         
         [WKAccountTool saveAccount:acount];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
+
+    } failure:^(NSError *error) {
+         NSLog(@"%@",error);
     }];
     
 }
@@ -335,7 +316,7 @@
     NSURL *url = [NSURL URLWithString:uesr.profile_image_url];
     [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     cell.textLabel.text = statues.text;
-    
+    cell.detailTextLabel.text = uesr.screen_name;
     
     return cell;
 }

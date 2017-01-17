@@ -12,6 +12,7 @@
 		2509401E1E2C9FF600659B53 /* WKTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2509401D1E2C9FF600659B53 /* WKTextView.m */; };
 		250940211E2CAD4E00659B53 /* WKPublishToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 250940201E2CAD4E00659B53 /* WKPublishToolBar.m */; };
 		250940241E2CCD6200659B53 /* WKPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 250940231E2CCD6200659B53 /* WKPictureView.m */; };
+		250940271E2DF70E00659B53 /* WKHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 250940261E2DF70E00659B53 /* WKHttpTool.m */; };
 		252507131E287741008F607A /* WKTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 252507121E287741008F607A /* WKTabBar.m */; };
 		2525071A1E289A76008F607A /* WKPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252507191E289A76008F607A /* WKPublishViewController.m */; };
 		2525071D1E28D7F5008F607A /* WKNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2525071C1E28D7F5008F607A /* WKNewFeatureViewController.m */; };
@@ -32,7 +33,6 @@
 		2563B3211E27B39500CFD370 /* WKTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2563B3201E27B39500CFD370 /* WKTitleBtn.m */; };
 		25C3C9411E27BA040033BA35 /* WKPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C3C9401E27BA040033BA35 /* WKPopMenu.m */; };
 		25DD0DF81E2B325400DAE4A6 /* WKOauthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0DF71E2B325400DAE4A6 /* WKOauthViewController.m */; };
-		25DD0DFB1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0DFA1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m */; };
 		25DD0DFE1E2B420500DAE4A6 /* WKAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0DFD1E2B420500DAE4A6 /* WKAccount.m */; };
 		25DD0E021E2B48BF00DAE4A6 /* WKAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0E011E2B48BF00DAE4A6 /* WKAccountTool.m */; };
 		25DD0E051E2B4B3C00DAE4A6 /* WKAccountControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD0E041E2B4B3C00DAE4A6 /* WKAccountControllerTool.m */; };
@@ -70,6 +70,8 @@
 		250940201E2CAD4E00659B53 /* WKPublishToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPublishToolBar.m; sourceTree = "<group>"; };
 		250940221E2CCD6200659B53 /* WKPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPictureView.h; sourceTree = "<group>"; };
 		250940231E2CCD6200659B53 /* WKPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPictureView.m; sourceTree = "<group>"; };
+		250940251E2DF70E00659B53 /* WKHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHttpTool.h; sourceTree = "<group>"; };
+		250940261E2DF70E00659B53 /* WKHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHttpTool.m; sourceTree = "<group>"; };
 		252507111E287741008F607A /* WKTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTabBar.h; sourceTree = "<group>"; };
 		252507121E287741008F607A /* WKTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTabBar.m; sourceTree = "<group>"; };
 		252507181E289A76008F607A /* WKPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPublishViewController.h; sourceTree = "<group>"; };
@@ -112,8 +114,6 @@
 		25C3C9401E27BA040033BA35 /* WKPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPopMenu.m; sourceTree = "<group>"; };
 		25DD0DF61E2B325400DAE4A6 /* WKOauthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKOauthViewController.h; sourceTree = "<group>"; };
 		25DD0DF71E2B325400DAE4A6 /* WKOauthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKOauthViewController.m; sourceTree = "<group>"; };
-		25DD0DF91E2B3F2900DAE4A6 /* WKHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKHTTPSessionManager.h; path = ../../Main/Category/WKHTTPSessionManager.h; sourceTree = "<group>"; };
-		25DD0DFA1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKHTTPSessionManager.m; path = ../../Main/Category/WKHTTPSessionManager.m; sourceTree = "<group>"; };
 		25DD0DFC1E2B420500DAE4A6 /* WKAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKAccount.h; path = ../../Oauth/Model/WKAccount.h; sourceTree = "<group>"; };
 		25DD0DFD1E2B420500DAE4A6 /* WKAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKAccount.m; path = ../../Oauth/Model/WKAccount.m; sourceTree = "<group>"; };
 		25DD0E001E2B48BF00DAE4A6 /* WKAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKAccountTool.h; sourceTree = "<group>"; };
@@ -511,8 +511,8 @@
 				25DD0E011E2B48BF00DAE4A6 /* WKAccountTool.m */,
 				25DD0E031E2B4B3C00DAE4A6 /* WKAccountControllerTool.h */,
 				25DD0E041E2B4B3C00DAE4A6 /* WKAccountControllerTool.m */,
-				25DD0DF91E2B3F2900DAE4A6 /* WKHTTPSessionManager.h */,
-				25DD0DFA1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m */,
+				250940251E2DF70E00659B53 /* WKHttpTool.h */,
+				250940261E2DF70E00659B53 /* WKHttpTool.m */,
 			);
 			name = Tool;
 			path = ../Oauth/Tool;
@@ -732,7 +732,6 @@
 				25C3C9411E27BA040033BA35 /* WKPopMenu.m in Sources */,
 				255A1A2A1E26A6FE00D65A05 /* WKDiscoveryTableViewController.m in Sources */,
 				2504B5B21E27AEC500D6C161 /* WKSearchBar.m in Sources */,
-				25DD0DFB1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m in Sources */,
 				255A1A2E1E26A6FE00D65A05 /* AppDelegate.m in Sources */,
 				25DD0E021E2B48BF00DAE4A6 /* WKAccountTool.m in Sources */,
 				252507131E287741008F607A /* WKTabBar.m in Sources */,
@@ -746,6 +745,7 @@
 				2563B3211E27B39500CFD370 /* WKTitleBtn.m in Sources */,
 				255A1A2B1E26A6FE00D65A05 /* WKHomeTableViewController.m in Sources */,
 				250940211E2CAD4E00659B53 /* WKPublishToolBar.m in Sources */,
+				250940271E2DF70E00659B53 /* WKHttpTool.m in Sources */,
 				255A1A311E26A6FE00D65A05 /* WKMeTableViewController.m in Sources */,
 				2509401E1E2C9FF600659B53 /* WKTextView.m in Sources */,
 				25DD0E071E2B549200DAE4A6 /* Foundation+Log.m in Sources */,
