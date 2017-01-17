@@ -235,10 +235,14 @@
     [self.manager GET:urlStr parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         //获取用户账号信息
-        WKAccount *account = [WKAccount mj_objectWithKeyValues:responseObject];
-        
+        WKUser *user = [WKUser mj_objectWithKeyValues:responseObject];
+        // 设置用户的昵称为标题
+        [self.titleBtn setTitle:user.screen_name forState:UIControlStateNormal];
         //保存起来
-        [WKAccountTool saveAccount:account];
+        WKAccount *acount = [WKAccountTool getAccount];
+        acount.name = user.screen_name;
+        
+        [WKAccountTool saveAccount:acount];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
