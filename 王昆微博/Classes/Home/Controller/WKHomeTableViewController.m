@@ -63,6 +63,9 @@
     
     //添加刷新控件
     [self addRefreshView];
+    
+    //获取到用户账号信息
+    [self getAccountMessage];
 }
 
 
@@ -221,14 +224,39 @@
     [self.manager.operationQueue cancelAllOperations];
 }
 
+
+- (void)getAccountMessage {
+
+    NSString *urlStr = @"https://api.weibo.com/2/users/show.json";
+    NSMutableDictionary *parame = [NSMutableDictionary dictionary];
+    parame[@"access_token"] = [WKAccountTool getAccount].access_token;
+    parame[@"uid"] = [WKAccountTool getAccount].uid;
+    
+    [self.manager GET:urlStr parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //获取用户账号信息
+        WKAccount *account = [WKAccount mj_objectWithKeyValues:responseObject];
+        
+        //保存起来
+        [WKAccountTool saveAccount:account];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
+}
+
 - (void)setUpUI {
 
     //设置menuView
     WKTitleBtn *titleBtn = [[WKTitleBtn alloc]init];
-    [titleBtn setTitle:@"阿拉斯加的狗" forState:UIControlStateNormal];
+    titleBtn.height = 35;
+    WKAccount *account = [WKAccountTool getAccount];
+    NSString *name = account.name;
+    [titleBtn setTitle:name ? name : @"首页" forState:UIControlStateNormal];
     [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     [titleBtn setBackgroundImage:[UIImage resizableImage:@"navigationbar_filter_background_highlighted"] forState:UIControlStateHighlighted];
-    titleBtn.size = CGSizeMake(120, 30);
+    
     self.navigationItem.titleView = titleBtn;
     [titleBtn addTarget:self action:@selector(clickTitle) forControlEvents:UIControlEventTouchUpInside];
     self.titleBtn = titleBtn;

@@ -48,4 +48,16 @@
     self.imageView.image = image;
 }
 
+
+
+- (NSArray *)getImage {
+
+    NSMutableArray *array = [NSMutableArray array];
+    for (UIImageView *imageView in self.subviews) {
+        
+        [array addObject:imageView.image];
+        
+    }
+    return array;
+}
 @end

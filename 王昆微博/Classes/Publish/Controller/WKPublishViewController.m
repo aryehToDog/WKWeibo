@@ -10,6 +10,10 @@
 #import "WKTextView.h"
 #import "WKPublishToolBar.h"
 #import "WKPictureView.h"
+#import "WKHTTPSessionManager.h"
+#import "WKAccount.h"
+#import "WKAccountTool.h"
+#import <SVProgressHUD.h>
 @interface WKPublishViewController ()<WKPublishToolBarDelegate,UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic,strong)WKTextView *textView;
@@ -122,6 +126,8 @@
 - (void)showPubliashCamera {
 
     UIImagePickerController *pickerVc = [[UIImagePickerController alloc]init];
+    //判断打开的类型是否匹配
+    if (! [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera ])   return;
     pickerVc.sourceType = UIImagePickerControllerSourceTypeCamera;
     [self presentViewController:pickerVc animated:YES completion:nil];
 
@@ -133,8 +139,12 @@
  打开相册
  */
 - (void)showPubliashPicuure {
-
+  
     UIImagePickerController *pickerVc = [[UIImagePickerController alloc]init];
+    
+    //判断打开的类型是否匹配
+    if (! [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum ])   return;
+    
     pickerVc.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
     pickerVc.delegate = self;
     [self presentViewController:pickerVc animated:YES completion:nil];
@@ -184,9 +194,66 @@
 - (void)send {
     
     NSLog(@"%s",__func__);
-
+    
+    //发送微博消息
+    NSInteger count = self.pictureView.getImage.count;
+    
+    if (count) {
+        //发送带图片的微博消息
+        [self sendPictureMessage];
+    }else {
+        //发送不带图片的微博消息
+        [self sendeMessage];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
+
+/**
+ 单张图片上传
+ */
+- (void)sendPictureMessage {
+    
+    WKHTTPSessionManager *msg = [WKHTTPSessionManager shareManager];
+    NSString *url = @"https://upload.api.weibo.com/2/statuses/upload.json";
+    NSMutableDictionary *parame = [NSMutableDictionary dictionary];
+    parame[@"access_token"] = [WKAccountTool getAccount].access_token;
+    parame[@"status"] = self.textView.text;
+    
+    [msg POST:url parameters:parame constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        UIImage *image = [self.pictureView.getImage firstObject];
+        NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+        
+        [formData appendPartWithFileData:imageData name:@"pic" fileName:@"statue.jpg" mimeType:@"image/jpeg"];
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [SVProgressHUD showSuccessWithStatus:@"微博发送成功"];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"微博发送失败"];
+    }];
+}
+
+- (void)sendeMessage {
+    
+    WKHTTPSessionManager *msg = [WKHTTPSessionManager shareManager];
+    
+    NSString *url = @"https://api.weibo.com/2/statuses/update.json";
+    NSMutableDictionary *parame = [NSMutableDictionary dictionary];
+    parame[@"access_token"] = [WKAccountTool getAccount].access_token;
+    parame[@"status"] = self.textView.text;
+    [msg POST:url parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [SVProgressHUD showSuccessWithStatus:@"微博发送成功"];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"微博发送失败"];
+        NSLog(@"%@",error);
+    }];
+    
+}
 #pragma mark - <UITextViewDelegate>
 /**
 开始拖拽的时候结束编辑
@@ -196,4 +263,17 @@
     [self.view endEditing:YES];
 
 }
+
+
+/**
+ 文字改变的时候机会调用
+
+ @param textView 输入的文本框文字
+ */
+- (void)textViewDidChange:(UITextView *)textView {
+
+    self.navigationItem.rightBarButtonItem.enabled = textView.text.length != 0;
+
+}
+
 @end

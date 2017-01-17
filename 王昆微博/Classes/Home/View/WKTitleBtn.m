@@ -50,4 +50,18 @@
 
 }
 
+
+- (void)setTitle:(NSString *)title forState:(UIControlState)state {
+
+    [super setTitle:title forState:state];
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[NSFontAttributeName] = self.titleLabel.font;
+    
+    CGSize size = [title sizeWithAttributes:dict];
+    
+    self.width = size.width + self.height + 10;
+    
+}
+
 @end

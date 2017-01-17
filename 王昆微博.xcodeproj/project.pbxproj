@@ -112,10 +112,10 @@
 		25C3C9401E27BA040033BA35 /* WKPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPopMenu.m; sourceTree = "<group>"; };
 		25DD0DF61E2B325400DAE4A6 /* WKOauthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKOauthViewController.h; sourceTree = "<group>"; };
 		25DD0DF71E2B325400DAE4A6 /* WKOauthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKOauthViewController.m; sourceTree = "<group>"; };
-		25DD0DF91E2B3F2900DAE4A6 /* WKHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHTTPSessionManager.h; sourceTree = "<group>"; };
-		25DD0DFA1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHTTPSessionManager.m; sourceTree = "<group>"; };
-		25DD0DFC1E2B420500DAE4A6 /* WKAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKAccount.h; sourceTree = "<group>"; };
-		25DD0DFD1E2B420500DAE4A6 /* WKAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKAccount.m; sourceTree = "<group>"; };
+		25DD0DF91E2B3F2900DAE4A6 /* WKHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKHTTPSessionManager.h; path = ../../Main/Category/WKHTTPSessionManager.h; sourceTree = "<group>"; };
+		25DD0DFA1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKHTTPSessionManager.m; path = ../../Main/Category/WKHTTPSessionManager.m; sourceTree = "<group>"; };
+		25DD0DFC1E2B420500DAE4A6 /* WKAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKAccount.h; path = ../../Oauth/Model/WKAccount.h; sourceTree = "<group>"; };
+		25DD0DFD1E2B420500DAE4A6 /* WKAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKAccount.m; path = ../../Oauth/Model/WKAccount.m; sourceTree = "<group>"; };
 		25DD0E001E2B48BF00DAE4A6 /* WKAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKAccountTool.h; sourceTree = "<group>"; };
 		25DD0E011E2B48BF00DAE4A6 /* WKAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKAccountTool.m; sourceTree = "<group>"; };
 		25DD0E031E2B4B3C00DAE4A6 /* WKAccountControllerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKAccountControllerTool.h; sourceTree = "<group>"; };
@@ -348,6 +348,7 @@
 		255A1A0F1E26A6FE00D65A05 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				25DD0DFF1E2B48AA00DAE4A6 /* Tool */,
 				255A1A101E26A6FE00D65A05 /* Category */,
 				255A1A151E26A6FE00D65A05 /* Controller */,
 				255A1A1C1E26A6FE00D65A05 /* Model */,
@@ -366,8 +367,6 @@
 				255A1A141E26A6FE00D65A05 /* UIView+Frame.m */,
 				2504B5B31E27AED200D6C161 /* UIImage+Extension.h */,
 				2504B5B41E27AED200D6C161 /* UIImage+Extension.m */,
-				25DD0DF91E2B3F2900DAE4A6 /* WKHTTPSessionManager.h */,
-				25DD0DFA1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -391,6 +390,8 @@
 		255A1A1C1E26A6FE00D65A05 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25DD0DFC1E2B420500DAE4A6 /* WKAccount.h */,
+				25DD0DFD1E2B420500DAE4A6 /* WKAccount.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -473,7 +474,6 @@
 		25DD0DF21E2B324400DAE4A6 /* Oauth */ = {
 			isa = PBXGroup;
 			children = (
-				25DD0DFF1E2B48AA00DAE4A6 /* Tool */,
 				25DD0DF31E2B324400DAE4A6 /* Controller */,
 				25DD0DF41E2B324400DAE4A6 /* Model */,
 				25DD0DF51E2B324400DAE4A6 /* View */,
@@ -493,8 +493,6 @@
 		25DD0DF41E2B324400DAE4A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				25DD0DFC1E2B420500DAE4A6 /* WKAccount.h */,
-				25DD0DFD1E2B420500DAE4A6 /* WKAccount.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -513,8 +511,11 @@
 				25DD0E011E2B48BF00DAE4A6 /* WKAccountTool.m */,
 				25DD0E031E2B4B3C00DAE4A6 /* WKAccountControllerTool.h */,
 				25DD0E041E2B4B3C00DAE4A6 /* WKAccountControllerTool.m */,
+				25DD0DF91E2B3F2900DAE4A6 /* WKHTTPSessionManager.h */,
+				25DD0DFA1E2B3F2900DAE4A6 /* WKHTTPSessionManager.m */,
 			);
-			path = Tool;
+			name = Tool;
+			path = ../Oauth/Tool;
 			sourceTree = "<group>";
 		};
 		4C40D0D86DF76FEE058B5739 /* Pods */ = {

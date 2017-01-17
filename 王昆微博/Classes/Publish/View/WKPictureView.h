@@ -12,4 +12,7 @@
 
 - (void)addImageView: (UIImage *)image;
 
+//获取所以的图片
+- (NSArray *)getImage;
+
 @end
