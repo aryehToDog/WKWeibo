@@ -12,7 +12,8 @@
 #import "WKAccount.h"
 #import "WKAccountTool.h"
 #import "WKAccountControllerTool.h"
-#import "WKHttpTool.h"
+#import "WKAssessTokenRequest.h"
+
 @interface WKOauthViewController ()<UIWebViewDelegate>
 
 @end
@@ -75,19 +76,20 @@
 - (void)loadAccesstoken: (NSString *)code {
     
     NSString *url = @"https://api.weibo.com/oauth2/access_token";
-    NSMutableDictionary *parame = [NSMutableDictionary dictionary];
-    parame[@"client_id"] = @"124151187";
-    parame[@"client_secret"] = @"ad66039d666c948ee603b1e72fcda242";
-    parame[@"grant_type"] = @"authorization_code";
-    parame[@"code"] = code;
-    parame[@"redirect_uri"] = @"http://www.jianshu.com/u/a54931de4c9b";
     
-    [WKHttpTool postWithUrl:url parameters:parame success:^(id responseObject) {
+    WKAssessTokenRequest *parame = [[WKAssessTokenRequest alloc]init];
+    parame.client_id = @"124151187";
+    parame.client_secret = @"ad66039d666c948ee603b1e72fcda242";
+    parame.grant_type = @"authorization_code";
+    parame.code = code;
+    parame.redirect_uri = @"http://www.jianshu.com/u/a54931de4c9b";
+    
+    [WKAccountTool accountPostAccesTokenWithUrl:url parameters:parame success:^(WKAccount *responseObject) {
         //取消加载提示
         [SVProgressHUD dismiss];
         
         //字典转模型
-        WKAccount *account = [WKAccount mj_objectWithKeyValues:responseObject];
+        WKAccount *account = responseObject;
         [WKAccountTool saveAccount:account];
         
         [WKAccountControllerTool getVersionController];
@@ -95,6 +97,7 @@
         //请求失败
         NSLog(@"%@",error);
     }];
+    
 }
 
 @end

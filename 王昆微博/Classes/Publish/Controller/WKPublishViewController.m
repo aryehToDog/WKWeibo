@@ -13,7 +13,8 @@
 #import "WKAccount.h"
 #import "WKAccountTool.h"
 #import <SVProgressHUD.h>
-#import "WKHttpTool.h"
+#import "WKSendMessageRequest.h"
+#import "WKStatuesTool.h"
 @interface WKPublishViewController ()<WKPublishToolBarDelegate,UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic,strong)WKTextView *textView;
@@ -218,37 +219,46 @@
     
     
     NSString *url = @"https://upload.api.weibo.com/2/statuses/upload.json";
-    NSMutableDictionary *parame = [NSMutableDictionary dictionary];
-    parame[@"access_token"] = [WKAccountTool getAccount].access_token;
-    parame[@"status"] = self.textView.text;
+//    NSMutableDictionary *parame = [NSMutableDictionary dictionary];
+//    parame[@"access_token"] = [WKAccountTool getAccount].access_token;
+//    parame[@"status"] = self.textView.text;
+
+    WKSendMessageRequest *parame = [[WKSendMessageRequest alloc]init];
+    parame.access_token = [WKAccountTool getAccount].access_token;
+    parame.status = self.textView.text;
     
-    [WKHttpTool postDownloadWithUrl:url parameters:parame data:^(id formData) {
+    [WKStatuesTool sendMessageWithPictureStatuesWithUrl:url parameters:parame data:^(id<AFMultipartFormData> formData) {
         UIImage *image = [self.pictureView.getImage firstObject];
         NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
         
         [formData appendPartWithFileData:imageData name:@"pic" fileName:@"statue.jpg" mimeType:@"image/jpeg"];
-        
-
-    } success:^(id responseObject) {
+    } success:^(WKSendMessageResult *responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"微博发送成功"];
     } failure:^(NSError *error) {
-         [SVProgressHUD showErrorWithStatus:@"微博发送失败"];
+        [SVProgressHUD showErrorWithStatus:@"微博发送失败"];
     }];
+
 }
 
+
+/**
+ 发送消息的微博
+ */
 - (void)sendeMessage {
   
     NSString *url = @"https://api.weibo.com/2/statuses/update.json";
-    NSMutableDictionary *parame = [NSMutableDictionary dictionary];
-    parame[@"access_token"] = [WKAccountTool getAccount].access_token;
-    parame[@"status"] = self.textView.text;
     
-    [WKHttpTool postWithUrl:url parameters:parame success:^(id responseObject) {
-         [SVProgressHUD showSuccessWithStatus:@"微博发送成功"];
+    WKSendMessageRequest *parame = [[WKSendMessageRequest alloc]init];
+    parame.access_token = [WKAccountTool getAccount].access_token;
+    parame.status = self.textView.text;
+    
+    [WKStatuesTool sendMessageStatuesWithUrl:url parameters:parame success:^(WKSendMessageResult *responseObject) {
+                 [SVProgressHUD showSuccessWithStatus:@"微博发送成功"];
     } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"微博发送失败"];
         NSLog(@"%@",error);
-    }];    
+    }];
+    
 }
 #pragma mark - <UITextViewDelegate>
 /**

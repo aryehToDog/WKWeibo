@@ -11,6 +11,9 @@
 @implementation WKAccountTool
 
 
+/**
+ 获取用户信息
+ */
 + (WKAccount *)getAccount {
 
     //将模型信息存贮到沙盒中
@@ -23,6 +26,9 @@
 }
 
 
+/**
+ 存贮用户信息
+ */
 + (void)saveAccount: (WKAccount*)account {
 
     //将模型信息存贮到沙盒中
@@ -34,4 +40,16 @@
 
 }
 
++ (void)accountGetNameWithUrl: (NSString *)url parameters:(WKAccountRequest *)parameters success:(void(^)(WKAccountResult *responseObject))success failure:(void(^)(NSError *error))failure{
+
+    [WKBaseTool getWithUrl:url parameters:parameters resuletClass:[WKAccountResult class] success:success failure:failure];
+    
+}
+
++ (void)accountPostAccesTokenWithUrl: (NSString *)url parameters:(WKAssessTokenRequest *)parameters success:(void(^)(WKAccount *responseObject))success failure:(void(^)(NSError *error))failure {
+
+    [WKBaseTool PostWithUrl:url parameters:parameters resuletClass:[WKAccount class] success:success failure:failure];
+
+}
+     
 @end

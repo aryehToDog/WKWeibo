@@ -17,7 +17,11 @@
 #import <UIImageView+WebCache.h>
 #import <MJRefresh.h>
 #import "WKStatus.h"
-#import "WKHttpTool.h"
+#import "WKStatuesRequest.h"
+#import "WKStatuesTool.h"
+#import "WKAccountRequest.h"
+
+
 
 @interface WKHomeTableViewController ()<WKPopMenuDelegate>
 
@@ -25,19 +29,10 @@
 @property (nonatomic,strong)WKTitleBtn *titleBtn;
 @property (nonatomic,strong)NSMutableArray *statusesArray;
 /** 字典请求参数,防止用户请求超时 */
-@property (nonatomic,strong)NSMutableDictionary *parmae;
+@property (nonatomic,strong)WKStatuesRequest *parmae;
 @end
 
 @implementation WKHomeTableViewController
-
-- (NSMutableDictionary *)parmae {
-    
-    if (_parmae == nil) {
-        _parmae = [NSMutableDictionary dictionary];
-    }
-    return _parmae;
-}
-
 
 - (NSMutableArray *)statusesArray {
 
@@ -89,29 +84,27 @@
     [self.tableView.mj_header endRefreshing];
     
     NSString *urlStr = @"https://api.weibo.com/2/statuses/home_timeline.json";
-    NSMutableDictionary *parame = [NSMutableDictionary dictionary];
-    WKAccount *account = [WKAccountTool getAccount];
+    
+    WKStatuesRequest *parmae = [[WKStatuesRequest alloc]init];
+    parmae.access_token = [WKAccountTool getAccount].access_token;
     WKStatus *lastStatu = [self.statusesArray lastObject];
     if (lastStatu) {
 #warning 为啥这地方要-1;
-        parame[@"max_id"] = @([lastStatu.idstr longLongValue] - 1);
+        parmae.max_id = @([lastStatu.idstr longLongValue] - 1);
     }
+//    self.parmae = parame;
     
-    parame[@"access_token"] = account.access_token;
-    self.parmae = parame;
-    
-    [WKHttpTool getWithUrl:urlStr parameters:parame success:^(id responseObject) {
-        
-        if (self.parmae != parame) return ;
+    [WKStatuesTool statuesWithUrl:urlStr parameters:parmae success:^(WKStatuesResult *responseObject) {
+//        if (self.parmae != parmae) return ;
         
         //字典数组转成模型数组
-        NSMutableArray *moreDictArray = [WKStatus mj_objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *moreDictArray = responseObject.statuses;
         
         [self.statusesArray addObjectsFromArray:moreDictArray];
         
         [self.tableView reloadData];
         
-        NSInteger totolCount = [responseObject[@"total_number"] integerValue];
+        NSInteger totolCount = [responseObject.total_number integerValue];
         
         if (self.statusesArray.count == totolCount) {
             
@@ -137,28 +130,26 @@
     [self.tableView.mj_footer endRefreshing];
     
     NSString *urlStr = @"https://api.weibo.com/2/statuses/home_timeline.json";
-    NSMutableDictionary *parame = [NSMutableDictionary dictionary];
-    WKAccount *account = [WKAccountTool getAccount];
+    
+    WKStatuesRequest *parame = [[WKStatuesRequest alloc]init];
+    parame.access_token = [WKAccountTool getAccount].access_token;
     WKStatus *firstStatus = [self.statusesArray firstObject];
-    if (firstStatus) {
-        parame[@"since_id"] = firstStatus.idstr;
-    }
-    
-    parame[@"access_token"] = account.access_token;
-    self.parmae = parame;
-    
-    [WKHttpTool getWithUrl:urlStr parameters:parame success:^(id responseObject) {
-        if (self.parmae != parame) return ;
+        if (firstStatus) {
+            parame.since_id = @([firstStatus.idstr longLongValue]);
+        }
+//    self.parmae = parame;
+    [WKStatuesTool statuesWithUrl:urlStr parameters:parame success:^(WKStatuesResult *responseObject) {
+//        if (self.parmae != parame) return ;
         //字典数组转成模型数组
-        NSMutableArray *newDictArray = [WKStatus mj_objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *newResult = responseObject.statuses;
         
-        NSRange range = {0,newDictArray.count};
+        NSRange range = {0,newResult.count};
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
         
-        [self.statusesArray insertObjects:newDictArray atIndexes:indexSet];
+        [self.statusesArray insertObjects:newResult atIndexes:indexSet];
         
         //提示刷新数据
-        [self showRefreshMessageWith:newDictArray.count];
+        [self showRefreshMessageWith:newResult.count];
         
         [self.tableView reloadData];
         //结束刷新
@@ -167,6 +158,7 @@
         //结束刷新
         [self.tableView.mj_header endRefreshing];
     }];
+
 }
 
 
@@ -210,13 +202,14 @@
 - (void)getAccountMessage {
 
     NSString *urlStr = @"https://api.weibo.com/2/users/show.json";
-    NSMutableDictionary *parame = [NSMutableDictionary dictionary];
-    parame[@"access_token"] = [WKAccountTool getAccount].access_token;
-    parame[@"uid"] = [WKAccountTool getAccount].uid;
     
-    [WKHttpTool getWithUrl:urlStr parameters:parame success:^(id responseObject) {
+    WKAccountRequest *parame = [[WKAccountRequest alloc]init];
+    parame.access_token = [WKAccountTool getAccount].access_token;
+    parame.uid = [WKAccountTool getAccount].uid;
+    
+    [WKAccountTool accountGetNameWithUrl:urlStr parameters:parame success:^(WKAccountResult *responseObject) {
         //获取用户账号信息
-        WKUser *user = [WKUser mj_objectWithKeyValues:responseObject];
+        WKUser *user = responseObject;
         // 设置用户的昵称为标题
         [self.titleBtn setTitle:user.screen_name forState:UIControlStateNormal];
         //保存起来
@@ -224,10 +217,11 @@
         acount.name = user.screen_name;
         
         [WKAccountTool saveAccount:acount];
-
     } failure:^(NSError *error) {
          NSLog(@"%@",error);
     }];
+    
+
     
 }
 
