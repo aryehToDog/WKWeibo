@@ -10,4 +10,6 @@
 
 @interface WKHomeTableViewController : UITableViewController
 
+- (void)refresh:(BOOL)isfromSelf;
+
 @end

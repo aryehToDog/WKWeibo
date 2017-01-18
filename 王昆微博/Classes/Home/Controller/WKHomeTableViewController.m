@@ -161,6 +161,22 @@
 
 }
 
+- (void)refresh:(BOOL)isfromSelf {
+
+    if (self.tabBarItem.badgeValue) {
+        
+            //下拉刷新数据
+        [self.tableView.mj_header beginRefreshing];
+        
+    }else if (isfromSelf) {
+    
+        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:0 inSection:0];
+        
+        [self.tableView scrollToRowAtIndexPath:indexpath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+
+}
+
 
 /**
  提示数据的更新

@@ -39,7 +39,7 @@
 + (void)accountGetNameWithUrl: (NSString *)url parameters:(WKAccountRequest *)parameters success:(void(^)(WKAccountResult *responseObject))success failure:(void(^)(NSError *error))failure;
 
 /**
- 获取最新的微博数据
+ 获取AccesToken
  
  @param url 请求地址
  @param parameters 请求参数模型

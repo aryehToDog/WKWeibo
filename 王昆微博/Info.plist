@@ -41,5 +41,9 @@
 	<string>确认打开相册</string>
 	<key>NSCameraUsageDescription</key>
 	<string>确认打开相机</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
 </dict>
 </plist>
